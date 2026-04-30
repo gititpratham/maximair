@@ -1,0 +1,553 @@
+{
+  "orders": [
+    {
+      "id": "cb7225b7-420f-429e-9616-aa398a35f2a3",
+      "rzpOrderId": "order_ShkikhCVxmUuhR",
+      "productId": "prod_3",
+      "productName": "CelPad 600×900×50",
+      "productSku": "CP-060090050",
+      "qty": 1,
+      "unitPrice": 599,
+      "subtotal": 599,
+      "shipping": 99,
+      "total": 698,
+      "customer": {
+        "name": "1212",
+        "email": "212",
+        "phone": "121"
+      },
+      "address": {
+        "line": "1",
+        "pincode": "212112",
+        "city": "21",
+        "state": "Gujarat"
+      },
+      "status": "pending",
+      "paymentStatus": "pending",
+      "rzpPaymentId": null,
+      "delhiveryWaybill": null,
+      "createdAt": "2026-04-25T14:06:24.168Z",
+      "updatedAt": "2026-04-25T14:06:24.168Z"
+    },
+    {
+      "id": "ed4537dc-fe05-438d-97cd-ff1917ce760f",
+      "rzpOrderId": "order_SgqZiR7q4go8vK",
+      "productId": "prod_2",
+      "productName": "CelPad 600×600×50",
+      "productSku": "CP-060060050",
+      "qty": 1,
+      "unitPrice": 449,
+      "subtotal": 449,
+      "shipping": 99,
+      "total": 548,
+      "customer": {
+        "name": "t7",
+        "email": "ppp",
+        "phone": "9510027794"
+      },
+      "address": {
+        "line": "pp",
+        "pincode": "380060",
+        "city": "ppp",
+        "state": "Gujarat"
+      },
+      "status": "confirmed",
+      "paymentStatus": "paid",
+      "rzpPaymentId": "pay_SgqZo4w9VYi8qG",
+      "delhiveryWaybill": null,
+      "createdAt": "2026-04-23T07:11:00.418Z",
+      "updatedAt": "2026-04-23T07:11:20.693Z"
+    },
+    {
+      "id": "d9cc24c6-6a2b-4281-81c7-7119a2d74ee0",
+      "rzpOrderId": "order_SgqOaU91N5U4Xi",
+      "productId": "prod_5",
+      "productName": "CelPad 1200×900×100",
+      "productSku": "CP-120090100",
+      "qty": 1,
+      "unitPrice": 1649,
+      "subtotal": 1649,
+      "shipping": 99,
+      "total": 1748,
+      "customer": {
+        "name": "11",
+        "email": "11",
+        "phone": "22"
+      },
+      "address": {
+        "line": "11",
+        "pincode": "111111",
+        "city": "11",
+        "state": "Gujarat"
+      },
+      "status": "confirmed",
+      "paymentStatus": "paid",
+      "rzpPaymentId": "pay_SgqOvXGjHy3Z6A",
+      "delhiveryWaybill": null,
+      "createdAt": "2026-04-23T07:00:28.331Z",
+      "updatedAt": "2026-04-23T07:01:03.119Z"
+    },
+    {
+      "id": "6a951e7e-9ec9-4045-a4b4-78dcd7cff655",
+      "rzpOrderId": "order_SgqHba5lW3uWBc",
+      "productId": "prod_6",
+      "productName": "CelPad 1500×900×150",
+      "productSku": "CP-150090150",
+      "qty": 1,
+      "unitPrice": 2199,
+      "subtotal": 2199,
+      "shipping": 0,
+      "total": 2199,
+      "customer": {
+        "name": "Jj",
+        "email": "hi",
+        "phone": "9510027794"
+      },
+      "address": {
+        "line": "Green meadow",
+        "pincode": "380060",
+        "city": "Ahmedabad",
+        "state": "Gujarat"
+      },
+      "status": "confirmed",
+      "paymentStatus": "paid",
+      "rzpPaymentId": "pay_SgqHikROresXLI",
+      "delhiveryWaybill": null,
+      "createdAt": "2026-04-23T06:53:51.733Z",
+      "updatedAt": "2026-04-23T06:54:14.886Z"
+    },
+    {
+      "id": "e866f19a-1646-4301-913b-9304bc1c6749",
+      "rzpOrderId": "order_SgqA4wwaDe5KAt",
+      "productId": "2641eb4b-cba0-466c-af64-711a61e9fb08",
+      "productName": "CP-060060030",
+      "productSku": "CP-060060030",
+      "qty": 1,
+      "unitPrice": 550,
+      "subtotal": 550,
+      "shipping": 99,
+      "total": 649,
+      "customer": {
+        "name": "11",
+        "email": "12",
+        "phone": "11"
+      },
+      "address": {
+        "line": "1223",
+        "pincode": "390000",
+        "city": "12",
+        "state": "Gujarat"
+      },
+      "status": "confirmed",
+      "paymentStatus": "paid",
+      "rzpPaymentId": "pay_SgqA9mTO7akBtJ",
+      "delhiveryWaybill": null,
+      "createdAt": "2026-04-23T06:46:44.245Z",
+      "updatedAt": "2026-04-23T06:47:03.363Z"
+    },
+    {
+      "id": "8ce881ec-c574-4db6-9273-5267a9dfe1e3",
+      "rzpOrderId": "order_SgpuXRbLcoNJIn",
+      "productId": "prod_1",
+      "productName": "CelPad 600×600×30",
+      "productSku": "CP-060060030",
+      "qty": 1,
+      "unitPrice": 349,
+      "subtotal": 349,
+      "shipping": 99,
+      "total": 448,
+      "customer": {
+        "name": "Pp",
+        "email": "l",
+        "phone": "6"
+      },
+      "address": {
+        "line": "K",
+        "pincode": "890890",
+        "city": "Jk",
+        "state": "Gujarat"
+      },
+      "status": "confirmed",
+      "paymentStatus": "pending",
+      "rzpPaymentId": null,
+      "delhiveryWaybill": null,
+      "createdAt": "2026-04-23T06:32:01.537Z",
+      "updatedAt": "2026-04-23T06:32:53.072Z"
+    },
+    {
+      "id": "ff599b11-e176-4d2a-bc7b-02d393dd5472",
+      "rzpOrderId": "order_SgpsJCl8FXkTjA",
+      "productId": "2641eb4b-cba0-466c-af64-711a61e9fb08",
+      "productName": "CP-060060030",
+      "productSku": "CP-060060030",
+      "qty": 1,
+      "unitPrice": 550,
+      "subtotal": 550,
+      "shipping": 99,
+      "total": 649,
+      "customer": {
+        "name": "P",
+        "email": "prathamp1210@gmail.com",
+        "phone": "9510027794"
+      },
+      "address": {
+        "line": "32",
+        "pincode": "380060",
+        "city": "Ahmedabad",
+        "state": "Gujarat"
+      },
+      "status": "pending",
+      "paymentStatus": "pending",
+      "rzpPaymentId": null,
+      "delhiveryWaybill": null,
+      "createdAt": "2026-04-23T06:29:54.894Z",
+      "updatedAt": "2026-04-23T06:29:54.894Z"
+    },
+    {
+      "id": "ebf554f2-4c48-48ab-ad2f-fa8729af8049",
+      "rzpOrderId": "order_SgpdIU3uhdvZV2",
+      "productId": "2641eb4b-cba0-466c-af64-711a61e9fb08",
+      "productName": "CP-060060030",
+      "productSku": "CP-060060030",
+      "qty": 1,
+      "unitPrice": 550,
+      "subtotal": 550,
+      "shipping": 99,
+      "total": 649,
+      "customer": {
+        "name": "Pratham",
+        "email": "pp",
+        "phone": "9510027794"
+      },
+      "address": {
+        "line": "pp",
+        "pincode": "380000",
+        "city": "pp",
+        "state": "Gujarat"
+      },
+      "status": "pending",
+      "paymentStatus": "pending",
+      "rzpPaymentId": null,
+      "delhiveryWaybill": null,
+      "createdAt": "2026-04-23T06:15:42.238Z",
+      "updatedAt": "2026-04-23T06:15:42.238Z"
+    },
+    {
+      "id": "9eeb8c7b-be67-4be9-b7ea-2b26e23612e7",
+      "rzpOrderId": "order_SgpaSpaiXB4H6x",
+      "productId": "2641eb4b-cba0-466c-af64-711a61e9fb08",
+      "productName": "CP-060060030",
+      "productSku": "CP-060060030",
+      "qty": 1,
+      "unitPrice": 550,
+      "subtotal": 550,
+      "shipping": 99,
+      "total": 649,
+      "customer": {
+        "name": "Pratham",
+        "email": "prathamp1210@gmail.com",
+        "phone": "9510027794"
+      },
+      "address": {
+        "line": "32",
+        "pincode": "380060",
+        "city": "Ahmedabad",
+        "state": "Gujarat"
+      },
+      "status": "pending",
+      "paymentStatus": "pending",
+      "rzpPaymentId": null,
+      "delhiveryWaybill": null,
+      "createdAt": "2026-04-23T06:13:01.307Z",
+      "updatedAt": "2026-04-23T06:13:01.307Z"
+    },
+    {
+      "id": "f0cc60e6-52b6-40e7-a4fb-9c025a802838",
+      "rzpOrderId": "order_SgpQ9rjnXX6LPE",
+      "productId": "2641eb4b-cba0-466c-af64-711a61e9fb08",
+      "productName": "CP-060060030",
+      "productSku": "CP-060060030",
+      "qty": 1,
+      "unitPrice": 550,
+      "subtotal": 550,
+      "shipping": 99,
+      "total": 649,
+      "customer": {
+        "name": "Pratham",
+        "email": "prathamp1210@gmail.com",
+        "phone": "9510027794"
+      },
+      "address": {
+        "line": "32",
+        "pincode": "380060",
+        "city": "Ahmedabad",
+        "state": "Gujarat"
+      },
+      "status": "pending",
+      "paymentStatus": "pending",
+      "rzpPaymentId": null,
+      "delhiveryWaybill": null,
+      "createdAt": "2026-04-23T06:03:15.932Z",
+      "updatedAt": "2026-04-23T06:03:15.932Z"
+    },
+    {
+      "id": "b7e64e93-99e0-474d-b267-14889341dbe1",
+      "rzpOrderId": "order_Sgp6nlTCGpODVm",
+      "productId": "2641eb4b-cba0-466c-af64-711a61e9fb08",
+      "productName": "CP-060060030",
+      "productSku": "CP-060060030",
+      "qty": 1,
+      "unitPrice": 550,
+      "subtotal": 550,
+      "shipping": 99,
+      "total": 649,
+      "customer": {
+        "name": "11",
+        "email": "11",
+        "phone": "9510027794"
+      },
+      "address": {
+        "line": "11",
+        "pincode": "111111",
+        "city": "11",
+        "state": "Gujarat"
+      },
+      "status": "pending",
+      "paymentStatus": "pending",
+      "rzpPaymentId": null,
+      "delhiveryWaybill": null,
+      "createdAt": "2026-04-23T05:44:56.479Z",
+      "updatedAt": "2026-04-23T05:44:56.479Z"
+    },
+    {
+      "id": "dcf6a675-ad74-4b4b-bd17-469d02f8381f",
+      "rzpOrderId": "order_Sgp5TaFJimdFfI",
+      "productId": "2641eb4b-cba0-466c-af64-711a61e9fb08",
+      "productName": "CP-060060030",
+      "productSku": "CP-060060030",
+      "qty": 1,
+      "unitPrice": 550,
+      "subtotal": 550,
+      "shipping": 99,
+      "total": 649,
+      "customer": {
+        "name": "22",
+        "email": "11",
+        "phone": "9510027794"
+      },
+      "address": {
+        "line": "11",
+        "pincode": "380060",
+        "city": "11",
+        "state": "Gujarat"
+      },
+      "status": "pending",
+      "paymentStatus": "pending",
+      "rzpPaymentId": null,
+      "delhiveryWaybill": null,
+      "createdAt": "2026-04-23T05:43:41.191Z",
+      "updatedAt": "2026-04-23T05:43:41.191Z"
+    },
+    {
+      "id": "192dc375-88db-4ba6-b760-7030d1d33059",
+      "rzpOrderId": "order_Sgp4wYkYrd5RTI",
+      "productId": "2641eb4b-cba0-466c-af64-711a61e9fb08",
+      "productName": "CP-060060030",
+      "productSku": "CP-060060030",
+      "qty": 1,
+      "unitPrice": 550,
+      "subtotal": 550,
+      "shipping": 99,
+      "total": 649,
+      "customer": {
+        "name": "22",
+        "email": "11",
+        "phone": "9876543211"
+      },
+      "address": {
+        "line": "11",
+        "pincode": "380060",
+        "city": "11",
+        "state": "Gujarat"
+      },
+      "status": "pending",
+      "paymentStatus": "pending",
+      "rzpPaymentId": null,
+      "delhiveryWaybill": null,
+      "createdAt": "2026-04-23T05:43:10.934Z",
+      "updatedAt": "2026-04-23T05:43:10.934Z"
+    },
+    {
+      "id": "97d0ab49-88e9-4642-ab3e-587617edb3d9",
+      "rzpOrderId": "order_Sgp3vjKoNJe0kx",
+      "productId": "2641eb4b-cba0-466c-af64-711a61e9fb08",
+      "productName": "CP-060060030",
+      "productSku": "CP-060060030",
+      "qty": 1,
+      "unitPrice": 550,
+      "subtotal": 550,
+      "shipping": 99,
+      "total": 649,
+      "customer": {
+        "name": "SS",
+        "email": "11",
+        "phone": "9876543211"
+      },
+      "address": {
+        "line": "11",
+        "pincode": "111111",
+        "city": "11",
+        "state": "Gujarat"
+      },
+      "status": "pending",
+      "paymentStatus": "pending",
+      "rzpPaymentId": null,
+      "delhiveryWaybill": null,
+      "createdAt": "2026-04-23T05:42:13.381Z",
+      "updatedAt": "2026-04-23T05:42:13.381Z"
+    }
+  ],
+  "products": [
+    {
+      "id": "prod_1",
+      "sku": "CP-060060030",
+      "name": "CelPad 600×600×30",
+      "h": 600,
+      "w": 600,
+      "d": 30,
+      "price": 349,
+      "mrp": 499,
+      "stock": 150,
+      "description": "Standard evaporative cooling pad for home and light commercial use.",
+      "active": true,
+      "createdAt": "2026-04-22T11:05:13.848Z"
+    },
+    {
+      "id": "prod_2",
+      "sku": "CP-060060050",
+      "name": "CelPad 600×600×50",
+      "h": 600,
+      "w": 600,
+      "d": 50,
+      "price": 449,
+      "mrp": 649,
+      "stock": 119,
+      "description": "Mid-range pad with enhanced cooling depth for better performance.",
+      "active": true,
+      "createdAt": "2026-04-22T11:05:13.848Z"
+    },
+    {
+      "id": "prod_3",
+      "sku": "CP-060090050",
+      "name": "CelPad 600×900×50",
+      "h": 600,
+      "w": 900,
+      "d": 50,
+      "price": 599,
+      "mrp": 849,
+      "stock": 80,
+      "description": "Wider pad for larger cooler units and commercial applications.",
+      "active": true,
+      "createdAt": "2026-04-22T11:05:13.848Z"
+    },
+    {
+      "id": "prod_4",
+      "sku": "CP-090090100",
+      "name": "CelPad 900×900×100",
+      "h": 900,
+      "w": 900,
+      "d": 100,
+      "price": 1299,
+      "mrp": 1799,
+      "stock": 50,
+      "description": "Heavy-duty industrial pad for large commercial cooling systems.",
+      "active": true,
+      "createdAt": "2026-04-22T11:05:13.848Z"
+    },
+    {
+      "id": "prod_5",
+      "sku": "CP-120090100",
+      "name": "CelPad 1200×900×100",
+      "h": 1200,
+      "w": 900,
+      "d": 100,
+      "price": 1649,
+      "mrp": 2299,
+      "stock": 29,
+      "description": "Extra-large industrial pad for factory and warehouse cooling.",
+      "active": true,
+      "createdAt": "2026-04-22T11:05:13.848Z"
+    },
+    {
+      "id": "prod_6",
+      "sku": "CP-150090150",
+      "name": "CelPad 1500×900×150",
+      "h": 1500,
+      "w": 900,
+      "d": 150,
+      "price": 2199,
+      "mrp": 2999,
+      "stock": 19,
+      "description": "Premium XXL pad for maximum cooling in large industrial facilities.",
+      "active": true,
+      "createdAt": "2026-04-22T11:05:13.848Z"
+    },
+    {
+      "id": "2641eb4b-cba0-466c-af64-711a61e9fb08",
+      "sku": "CP-060060030",
+      "name": "CP-060060030",
+      "h": 600,
+      "w": 600,
+      "d": 30,
+      "price": 550,
+      "mrp": 300,
+      "stock": 49,
+      "description": "SALEEEE!!",
+      "active": true,
+      "createdAt": "2026-04-23T05:19:07.218Z"
+    }
+  ],
+  "quotes": [
+    {
+      "id": "f48463fb-2344-4616-a5ac-af67f7fdd81c",
+      "name": "Bulk",
+      "phone": "989089",
+      "email": "999",
+      "dimensions": {
+        "h": "9999",
+        "w": "999",
+        "d": "99"
+      },
+      "qty": "9",
+      "notes": "9.9",
+      "status": "new",
+      "createdAt": "2026-04-27T10:08:36.274Z"
+    },
+    {
+      "id": "fc6d2ee0-68e9-4fb6-bae7-b03f8c97029b",
+      "name": "Test User",
+      "phone": "9999999999",
+      "email": "test@test.com",
+      "dimensions": {
+        "h": "600",
+        "w": "600",
+        "d": "50"
+      },
+      "qty": 5,
+      "notes": "",
+      "status": "new",
+      "createdAt": "2026-04-23T05:17:47.881Z"
+    }
+  ],
+  "settings": {
+    "siteName": "Suvidha Air Engineers",
+    "adminPassword": "121004",
+    "shippingFlat": 99,
+    "shippingFreeAbove": 2000,
+    "razorpayKeyId": "rzp_test_SgS6ryaCihEJxn",
+    "razorpayKeySecret": "OCBC4wXd1SvEeQV7QnwzU1Rf",
+    "delhiveryToken": "736cedf712c367a6d6b7f04d21e8b9d37604e118",
+    "phone": "+91 98251 41727",
+    "email": "info@suvidhaair.in"
+  }
+}

@@ -1,0 +1,1827 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CelPad Pro — Evaporative Cellulose Cooling Pads | Suvidha Air Solutions</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --teal: #00897B;
+      --teal-dark: #00695C;
+      --teal-light: #B2DFDB;
+      --teal-xlight: #E0F2F1;
+      --orange: #FF6D00;
+      --orange-light: #FF9E40;
+      --charcoal: #1C2B2A;
+      --white: #F8FFFE;
+      --gray: #6B7D7C;
+      --card-bg: #ffffff;
+      --border: #e0eded;
+      --font-head: 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --shadow: 0 2px 16px rgba(0, 50, 45, 0.07);
+      --shadow-lg: 0 8px 32px rgba(0, 50, 45, 0.12);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--white);
+      color: var(--charcoal);
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5vw;
+      height: 62px;
+      background: rgba(14, 26, 25, 0.96);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, .06);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .nav-logo-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-head);
+      color: #fff;
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .nav-logo-text {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 17px;
+      color: #fff;
+      line-height: 1.1;
+    }
+
+    .nav-logo-sub {
+      font-size: 10px;
+      color: var(--teal-light);
+      font-weight: 400;
+      letter-spacing: .5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255, 255, 255, 0.75);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color .2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--teal-light);
+    }
+
+    .nav-cta {
+      background: transparent;
+      color: rgba(255, 255, 255, .85);
+      border: 1px solid rgba(255, 255, 255, .18);
+      padding: 7px 20px;
+      border-radius: 8px;
+      font-family: var(--font-head);
+      font-weight: 500;
+      font-size: 13px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all .2s;
+      letter-spacing: .01em;
+    }
+
+    .nav-cta:hover {
+      border-color: var(--teal);
+      color: var(--teal-light);
+    }
+
+    .nav-ham {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .nav-ham span {
+      width: 24px;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: .3s;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--charcoal) 0%, #0D2321 60%, #1A3B38 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 110px 5vw 72px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg-pattern {
+      display: none;
+    }
+
+    .hero-glow {
+      position: absolute;
+      right: -10vw;
+      top: 10vh;
+      width: 55vw;
+      height: 70vh;
+      background: radial-gradient(ellipse, rgba(0, 137, 123, 0.22) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 137, 123, 0.18);
+      border: 1px solid rgba(0, 137, 123, 0.4);
+      color: var(--teal-light);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 100px;
+      width: fit-content;
+      margin-bottom: 28px;
+      animation: fadeUp .8s ease both;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      background: var(--teal-light);
+      border-radius: 50%;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1)
+      }
+
+      50% {
+        opacity: .5;
+        transform: scale(1.4)
+      }
+    }
+
+    .hero-title {
+      font-family: var(--font-head);
+      font-size: clamp(42px, 7vw, 88px);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.0;
+      letter-spacing: -.025em;
+      animation: fadeUp .9s .1s ease both;
+    }
+
+    .hero-title .accent {
+      color: var(--teal);
+    }
+
+    .hero-title .orange {
+      color: var(--orange);
+    }
+
+    .hero-sub {
+      font-size: clamp(14px, 1.8vw, 17px);
+      color: rgba(255, 255, 255, .55);
+      max-width: 540px;
+      line-height: 1.7;
+      margin-top: 20px;
+      animation: fadeUp .9s .2s ease both;
+      font-weight: 300;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 36px;
+      animation: fadeUp .9s .3s ease both;
+    }
+
+    .btn-primary {
+      background: var(--teal);
+      color: #fff;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 9px;
+      font-family: var(--font-head);
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all .2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      letter-spacing: .01em;
+    }
+
+    .btn-primary:hover {
+      background: var(--teal-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(0, 137, 123, .25);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: rgba(255, 255, 255, .7);
+      border: 1px solid rgba(255, 255, 255, .18);
+      padding: 13px 28px;
+      border-radius: 10px;
+      font-family: var(--font-head);
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all .2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--teal);
+      color: var(--teal-light);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+      margin-top: 56px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255, 255, 255, .06);
+      animation: fadeUp .9s .4s ease both;
+    }
+
+    .stat-item {}
+
+    .stat-num {
+      font-family: var(--font-head);
+      font-size: 32px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -.02em;
+    }
+
+    .stat-num .unit {
+      font-size: 16px;
+      color: rgba(255, 255, 255, .35);
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: rgba(255, 255, 255, .35);
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    .hero-product {
+      position: absolute;
+      right: 5vw;
+      top: 50%;
+      transform: translateY(-50%);
+      width: clamp(240px, 38vw, 520px);
+      animation: float 5s ease-in-out infinite, fadeUp .9s .2s ease both;
+    }
+
+    .hero-product-img {
+      width: 100%;
+      border-radius: 20px;
+      background: none;
+      border: none;
+      overflow: visible;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(-50%) translateX(0)
+      }
+
+      50% {
+        transform: translateY(-52%) translateX(8px)
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    /* SECTION STYLES */
+    section {
+      padding: 72px 5vw;
+    }
+
+    .section-tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: var(--font-head);
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 800;
+      color: var(--charcoal);
+      line-height: 1.1;
+    }
+
+    .section-sub {
+      font-size: 16px;
+      color: var(--gray);
+      max-width: 560px;
+      line-height: 1.7;
+      margin-top: 12px;
+      font-weight: 300;
+    }
+
+    /* FEATURES */
+    .features {
+      background: var(--white);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .feature-card {
+      background: var(--card-bg);
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      transition: all .3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--teal), var(--teal-dark));
+      opacity: 0;
+      transition: .3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--teal);
+    }
+
+    .feature-card:hover::before {
+      opacity: 1;
+    }
+
+    .feature-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--teal-xlight);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      margin-bottom: 16px;
+    }
+
+    .feature-title {
+      font-family: var(--font-head);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+    }
+
+    .feature-desc {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    /* PRODUCTS */
+    .products {
+      background: #fff;
+    }
+
+    .products-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 28px;
+      margin-top: 48px;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #e8f0ef;
+      transition: all .25s;
+      cursor: pointer;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 28px rgba(0, 100, 90, .09);
+    }
+
+    .product-card-img {
+      background: linear-gradient(135deg, var(--teal-xlight), #fff);
+      padding: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 200px;
+      position: relative;
+    }
+
+    .product-card-img svg {
+      width: 140px;
+      height: 140px;
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--orange);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    .product-card-body {
+      padding: 20px 24px 24px;
+    }
+
+    .product-size {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--gray);
+      margin-bottom: 4px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .product-name {
+      font-family: var(--font-head);
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+    }
+
+    .product-specs {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .spec-chip {
+      background: #f0f7f5;
+      color: #008070;
+      font-size: 10px;
+      font-weight: 500;
+      padding: 3px 9px;
+      border-radius: 20px;
+      letter-spacing: .02em;
+    }
+
+    .product-price-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .product-price {
+      font-family: var(--font-head);
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--charcoal);
+    }
+
+    .product-price span {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--gray);
+    }
+
+    .add-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 9px;
+      background: #f0f7f5;
+      color: var(--teal-dark);
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 16px;
+      transition: .2s;
+    }
+
+    .add-btn:hover {
+      background: var(--teal);
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    .color-options {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+
+    .prod-color {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: .15s;
+    }
+
+    .prod-color.sel {
+      border-color: var(--charcoal);
+      transform: scale(1.2);
+    }
+
+    /* CUSTOM ORDER SECTION */
+    .custom-section {
+      background: var(--charcoal);
+      color: #fff;
+    }
+
+    .custom-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .custom-form {
+      background: rgba(255, 255, 255, .05);
+      border: 1.5px solid rgba(0, 137, 123, .3);
+      border-radius: 20px;
+      padding: 36px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, .6);
+      margin-bottom: 6px;
+      letter-spacing: .3px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: rgba(255, 255, 255, .07);
+      border: 1.5px solid rgba(255, 255, 255, .12);
+      border-radius: 10px;
+      padding: 11px 14px;
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 14px;
+      transition: .2s;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--teal);
+      background: rgba(0, 137, 123, .1);
+    }
+
+    .form-group select option {
+      background: #1C2B2A;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .custom-info h2 {
+      font-family: var(--font-head);
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800;
+      line-height: 1.1;
+    }
+
+    .custom-info h2 .accent {
+      color: var(--teal);
+    }
+
+    .custom-info p {
+      color: rgba(255, 255, 255, .6);
+      line-height: 1.7;
+      margin-top: 16px;
+      font-weight: 300;
+    }
+
+    .custom-bullets {
+      margin-top: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .custom-bullet {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .custom-bullet-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: rgba(0, 137, 123, .15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .custom-bullet-text {
+      font-size: 14px;
+      color: rgba(255, 255, 255, .75);
+    }
+
+    /* ABOUT */
+    .about {
+      background: #fff;
+    }
+
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-img {
+      border-radius: 24px;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      background: #f0f7f6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .about-img-svg {
+      width: 80%;
+    }
+
+    .cert-badge {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      background: #fff;
+      border-radius: 14px;
+      padding: 14px 18px;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .cert-icon {
+      font-size: 28px;
+    }
+
+    .cert-text strong {
+      display: block;
+      font-family: var(--font-head);
+      font-size: 14px;
+      color: var(--charcoal);
+    }
+
+    .cert-text span {
+      font-size: 11px;
+      color: var(--gray);
+    }
+
+    .about-content .section-tag {
+      margin-top: 0;
+    }
+
+    .about-content p {
+      font-size: 15px;
+      color: var(--gray);
+      line-height: 1.8;
+      margin-top: 16px;
+      font-weight: 300;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--charcoal);
+      color: rgba(255, 255, 255, .6);
+      padding: 60px 5vw 32px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand .nav-logo-text {
+      color: #fff;
+      font-size: 20px;
+    }
+
+    .footer-brand p {
+      font-size: 13px;
+      line-height: 1.7;
+      margin-top: 12px;
+      color: rgba(255, 255, 255, .45);
+    }
+
+    .footer-col h4 {
+      font-family: var(--font-head);
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .footer-col a {
+      display: block;
+      font-size: 13px;
+      color: rgba(255, 255, 255, .45);
+      text-decoration: none;
+      margin-bottom: 8px;
+      transition: .15s;
+    }
+
+    .footer-col a:hover {
+      color: var(--teal-light);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, .08);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-bottom span {
+      font-size: 12px;
+    }
+
+    .iso-badge {
+      background: rgba(0, 137, 123, .15);
+      border: 1px solid rgba(0, 137, 123, .3);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      color: var(--teal-light);
+    }
+
+    .contact-row {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .contact-row a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255, 255, 255, .5);
+      font-size: 13px;
+      text-decoration: none;
+    }
+
+    .contact-row a:hover {
+      color: var(--teal-light);
+    }
+
+    /* TOAST */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 999;
+      background: #111d1c;
+      color: rgba(255, 255, 255, .85);
+      border-radius: 10px;
+      padding: 12px 20px;
+      font-size: 13px;
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, .2);
+      transform: translateY(80px);
+      opacity: 0;
+      transition: all .35s ease;
+      pointer-events: none;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .toast-icon {
+      font-size: 18px;
+    }
+
+    /* SCROLLBAR */
+    ::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #c0d8d5;
+      border-radius: 2px;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:900px) {
+      .hero-product {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 90px;
+      }
+
+      .custom-inner,
+      .about-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .about-img {
+        aspect-ratio: 3/2;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media(max-width:640px) {
+
+      .nav-links,
+      .nav-cta {
+        display: none;
+      }
+
+      .nav-ham {
+        display: flex;
+      }
+
+      .hero-stats {
+        gap: 28px;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a class="nav-logo" href="#">
+      <img src="/logo.png" alt="Suvidha Air Solutions Logo" style="width: 40px; height: 40px; border-radius: 8px;">
+      <div>
+        <div class="nav-logo-text">Suvidha Air</div>
+        <div class="nav-logo-sub">Solutions</div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#products">Products</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#custom">Custom Order</a></li>
+      <li><a href="#about">About Us</a></li>
+    </ul>
+    <a class="nav-cta" href="/products.html">Buy Now →</a>
+    <div class="nav-ham" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg-pattern"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-badge">ISO 9001:2008 Certified</div>
+    <h1 class="hero-title">
+      CelPad<br>
+      <span class="accent">Evaporative</span><br>
+      Cooling <span class="orange">Pads</span>
+    </h1>
+    <p class="hero-sub">Precision-engineered cellulose cooling pads for industrial &amp; residential air coolers.
+      Maximum efficiency. Minimum power.</p>
+
+    <div class="hero-actions">
+      <a href="/products.html" class="btn-primary">Shop Products →</a>
+      <a href="#custom" class="btn-outline">Custom Size</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">20<span class="unit">+</span></div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">10K<span class="unit">+</span></div>
+        <div class="stat-label">Units Delivered</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">95<span class="unit">%</span></div>
+        <div class="stat-label">Cooling Efficiency</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">5<span class="unit">yr</span></div>
+        <div class="stat-label">Product Lifespan</div>
+      </div>
+    </div>
+    <!-- Decorative product visual -->
+    <div class="hero-product">
+      <div class="hero-product-img" style="background: none; border: none; overflow: visible;">
+        <img src="/product.jpg" alt="CelPad Evaporative Cooling Pad"
+          style="width:100%; border-radius:20px; box-shadow: 0 20px 40px rgba(0,0,0,0.3);">
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES BENTO -->
+  <section class="features" id="features" style="padding:100px 5vw; background:#f9fafa;">
+    <style>
+      .b-eye {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: .18em;
+        text-transform: uppercase;
+        color: var(--teal);
+        margin-bottom: 14px;
+      }
+
+      .b-h2 {
+        font-family: var(--font-head);
+        font-size: clamp(30px, 4vw, 50px);
+        font-weight: 800;
+        color: var(--charcoal);
+        line-height: 1.08;
+        letter-spacing: -.02em;
+      }
+
+      .b-sub {
+        font-size: 15px;
+        color: var(--gray);
+        max-width: 520px;
+        line-height: 1.75;
+        margin-top: 14px;
+        font-weight: 400;
+        margin-bottom: 48px;
+      }
+
+      .bg {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 10px;
+      }
+
+      .bc {
+        background: #fff;
+        border: 1px solid #e4eeec;
+        border-radius: 18px;
+        padding: 26px 24px;
+        display: flex;
+        flex-direction: column;
+        transition: box-shadow .25s, transform .25s;
+      }
+
+      .bc:hover {
+        box-shadow: 0 8px 32px rgba(0, 100, 90, .1);
+        transform: translateY(-2px);
+      }
+
+      .s2 {
+        grid-column: span 2
+      }
+
+      .s3 {
+        grid-column: span 3
+      }
+
+      .s4 {
+        grid-column: span 4
+      }
+
+      .s6 {
+        grid-column: span 6
+      }
+
+      .tr {
+        grid-row: span 2
+      }
+
+      .dk-navy {
+        background: #0b1f3a;
+        border-color: transparent;
+      }
+
+      .dk-forest {
+        background: #062318;
+        border-color: transparent;
+      }
+
+      .bi {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 17px;
+        margin-bottom: 16px;
+      }
+
+      .ib {
+        background: rgba(55, 138, 221, .12)
+      }
+
+      .it {
+        background: rgba(0, 137, 123, .12)
+      }
+
+      .ia {
+        background: rgba(200, 120, 30, .12)
+      }
+
+      .ig {
+        background: rgba(50, 140, 60, .12)
+      }
+
+      .bl {
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: .13em;
+        text-transform: uppercase;
+        color: #9bb0ae;
+        margin-bottom: 5px;
+      }
+
+      .bt {
+        font-family: var(--font-head);
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1.25;
+        color: var(--charcoal);
+        margin-bottom: 7px;
+      }
+
+      .bd {
+        font-size: 13px;
+        color: var(--gray);
+        line-height: 1.65;
+        font-weight: 400;
+      }
+
+      .dk-navy .bl,
+      .dk-forest .bl {
+        color: #5b8aaa;
+      }
+
+      .dk-navy .bt {
+        color: #deeaf7
+      }
+
+      .dk-navy .bd {
+        color: #7aaac8;
+      }
+
+      .dk-forest .bt {
+        color: #c8eadc
+      }
+
+      .dk-forest .bd {
+        color: #5aaa88;
+      }
+
+      .b-stats {
+        display: flex;
+        gap: 24px;
+        margin-top: auto;
+        padding-top: 18px;
+        border-top: 1px solid rgba(0, 137, 123, .1);
+        flex-wrap: wrap;
+      }
+
+      .bsv {
+        font-family: var(--font-head);
+        font-size: 22px;
+        font-weight: 800;
+        color: var(--teal);
+        line-height: 1;
+      }
+
+      .bsk {
+        font-size: 11px;
+        color: #9bb0ae;
+        margin-top: 2px;
+      }
+
+      .bwave {
+        display: flex;
+        align-items: flex-end;
+        gap: 2.5px;
+        height: 32px;
+        margin: 14px 0 4px;
+      }
+
+      .bwave span {
+        flex: 1;
+        border-radius: 2px 2px 0 0;
+        background: #1D9E75;
+        opacity: .55;
+      }
+
+      .bpills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        margin-top: auto;
+        padding-top: 14px;
+      }
+
+      .bpill {
+        font-size: 10px;
+        font-weight: 600;
+        padding: 3px 10px;
+        border-radius: 100px;
+        background: rgba(55, 138, 221, .1);
+        color: #6aa8d0;
+        border: 1px solid rgba(55, 138, 221, .15);
+      }
+
+      .bbadge {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: .05em;
+        padding: 3px 9px;
+        border-radius: 100px;
+        background: #eaf4eb;
+        color: #2d7a3a;
+        margin-bottom: 12px;
+        width: fit-content;
+      }
+
+      .bdot {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: currentColor;
+      }
+
+      @media(max-width:860px) {
+        .bg {
+          grid-template-columns: 1fr 1fr
+        }
+
+        .s2,
+        .s3,
+        .s4,
+        .s6 {
+          grid-column: span 2
+        }
+
+        .tr {
+          grid-row: span 1
+        }
+      }
+
+      @media(max-width:520px) {
+        .bg {
+          grid-template-columns: 1fr
+        }
+
+        .s2,
+        .s3,
+        .s4,
+        .s6,
+        .tr {
+          grid-column: span 1
+        }
+      }
+    </style>
+
+    <div class="b-eye">Why Choose CelPad</div>
+    <h2 class="b-h2">Built for performance.<br>Designed to last.</h2>
+    <p class="b-sub">Every pad is engineered for maximum evaporative cooling with minimal energy use and zero compromise
+      on durability.</p>
+
+    <div class="bg">
+
+      <!-- Row 1: 4+2(tall) -->
+      <div class="bc s4" style="min-height:190px;">
+        <div class="bi ib">💨</div>
+        <div class="bl">Core Technology</div>
+        <div class="bt">Superior ventilating performance</div>
+        <div class="bd">Integrated pads and fan exhaust hot air rapidly, maximizing air exchange across the full space.
+        </div>
+        <div class="b-stats">
+          <div>
+            <div class="bsv">3×</div>
+            <div class="bsk">Air exchange</div>
+          </div>
+          <div>
+            <div class="bsv">80%</div>
+            <div class="bsk">Less energy vs AC</div>
+          </div>
+          <div>
+            <div class="bsv">15°C</div>
+            <div class="bsk">Avg temp drop</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bc s2 tr dk-navy">
+        <div class="bi">🧬</div>
+        <div class="bl">Material Science</div>
+        <div class="bt">Cellulose base media</div>
+        <div class="bd">Cross-sectional fluted cellulose treated to absorb and retain water for peak efficiency.</div>
+        <div class="bpills">
+          <span class="bpill">Anti-rot</span>
+          <span class="bpill">Anti-fungal</span>
+          <span class="bpill">High absorption</span>
+        </div>
+      </div>
+
+      <!-- Row 2 fills under the tall card: 2+2+2 -->
+      <div class="bc s2">
+        <div class="bi ia">🛡️</div>
+        <div class="bl">Durability</div>
+        <div class="bt">Built to last</div>
+        <div class="bd">Wood-pulp paper with specialized glue — anti-corrosion, anti-mustiness, long service life.</div>
+      </div>
+
+      <div class="bc s2">
+        <div class="bi it">🔬</div>
+        <div class="bl">Chemistry</div>
+        <div class="bt">Anti-rot formula</div>
+        <div class="bd">Synthesized with anti-rot chemicals ensuring longevity under continuous wet conditions.</div>
+      </div>
+
+      <!-- Row 3: 4+2 -->
+      <div class="bc s4 dk-forest">
+        <div class="bi">💧</div>
+        <div class="bl">Wetting Properties</div>
+        <div class="bt">Zero water carry-over</div>
+        <div class="bd">Self-supporting, dirt-resistant, self-cleaning surface. No droplets escape — just cool clean
+          air.</div>
+        <div class="bwave">
+          <span style="height:28%"></span><span style="height:52%"></span><span style="height:80%"></span>
+          <span style="height:96%"></span><span style="height:86%"></span><span style="height:72%"></span>
+          <span style="height:82%"></span><span style="height:66%"></span><span style="height:56%"></span>
+          <span style="height:42%"></span><span style="height:32%"></span><span style="height:48%"></span>
+        </div>
+      </div>
+
+      <div class="bc s2">
+        <div class="bbadge"><span class="bdot"></span>ECO</div>
+        <div class="bl">Environment</div>
+        <div class="bt">Eco friendly</div>
+        <div class="bd">Low pressure drop reduces energy requirements across the entire system.</div>
+      </div>
+
+      <!-- Row 4: 3+3 -->
+      <div class="bc s3">
+        <div class="bi it">⚡</div>
+        <div class="bl">Efficiency</div>
+        <div class="bt">High efficiency &amp; energy saving</div>
+        <div class="bd">Evaporation cooling with remarkably low power consumption — no compressor needed.</div>
+      </div>
+
+      <div class="bc s3">
+        <div class="bi ig">🔧</div>
+        <div class="bl">Installation</div>
+        <div class="bt">Easy to install</div>
+        <div class="bd">Lightweight rigid form fits standard cooler frames. Minimal maintenance, low lifetime cost.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="products" id="products">
+    <div class="products-header">
+      <div>
+        <div class="section-tag">Standard Sizes</div>
+        <h2 class="section-title">Ready-to-Ship Cooling Pads</h2>
+        <p class="section-sub">All sizes RoHS compliant. Multiple colors available on request.</p>
+      </div>
+      <a href="#custom" class="btn-primary" style="flex-shrink:0">Need Custom Size?</a>
+    </div>
+    <div class="products-grid" id="productGrid"></div>
+  </section>
+
+  <!-- CUSTOM ORDER -->
+  <section class="custom-section" id="custom">
+    <div class="custom-inner">
+      <div class="custom-info">
+        <div class="section-tag" style="color:var(--teal-light)">Custom Sizing</div>
+        <h2>Any Size.<br><span class="accent">Any Color.</span><br>Any Quantity.</h2>
+        <p>We manufacture cooling pads to your exact specifications. Whether it's a single replacement pad or a bulk
+          industrial order — we deliver within 5–7 working days across India.</p>
+        <div class="custom-bullets">
+          <div class="custom-bullet">
+            <div class="custom-bullet-icon"
+              style="background:rgba(0,137,123,.12);border-radius:50%;width:8px;height:8px;margin-top:6px;flex-shrink:0;">
+            </div>
+            <div class="custom-bullet-text">Specify exact Height × Width × Depth in mm</div>
+          </div>
+          <div class="custom-bullet">
+            <div class="custom-bullet-icon"
+              style="background:rgba(0,137,123,.12);border-radius:50%;width:8px;height:8px;margin-top:6px;flex-shrink:0;">
+            </div>
+            <div class="custom-bullet-text">Choose from Brown, Green, Blue, Grey, Terracotta</div>
+          </div>
+          <div class="custom-bullet">
+            <div class="custom-bullet-icon"
+              style="background:rgba(0,137,123,.12);border-radius:50%;width:8px;height:8px;margin-top:6px;flex-shrink:0;">
+            </div>
+            <div class="custom-bullet-text">Bulk discounts on orders above 20 units</div>
+          </div>
+          <div class="custom-bullet">
+            <div class="custom-bullet-icon"
+              style="background:rgba(0,137,123,.12);border-radius:50%;width:8px;height:8px;margin-top:6px;flex-shrink:0;">
+            </div>
+            <div class="custom-bullet-text">Pan-India shipping via Delhivery & Shiprocket</div>
+          </div>
+          <div class="custom-bullet">
+            <div class="custom-bullet-icon"
+              style="background:rgba(0,137,123,.12);border-radius:50%;width:8px;height:8px;margin-top:6px;flex-shrink:0;">
+            </div>
+            <div class="custom-bullet-text">WhatsApp support: +91 98251 41727</div>
+          </div>
+        </div>
+      </div>
+      <div class="custom-form">
+        <div class="section-tag" style="color:var(--teal-light); margin-bottom:20px;">Get a Quote</div>
+        <div class="form-group"><label>Full Name</label><input type="text" placeholder="Your name" id="cName" /></div>
+        <div class="form-row">
+          <div class="form-group"><label>Phone</label><input type="tel" placeholder="+91 XXXXX XXXXX" id="cPhone" />
+          </div>
+          <div class="form-group"><label>Email</label><input type="email" placeholder="you@email.com" id="cEmail" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Height (mm)</label><input type="number" placeholder="e.g. 600" id="cH" /></div>
+          <div class="form-group"><label>Width (mm)</label><input type="number" placeholder="e.g. 300" id="cW" /></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Depth (mm)</label><input type="number" placeholder="e.g. 100" id="cD" /></div>
+          <div class="form-group"><label>Quantity</label><input type="number" placeholder="e.g. 10" id="cQty" /></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Color</label>
+            <select id="cColor">
+              <option>Brown</option>
+              <option>Green</option>
+              <option>Blue</option>
+              <option>Grey</option>
+              <option>Terracotta</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Media Angle</label>
+            <select id="cAngle">
+              <option>45°×45°</option>
+              <option>45°×15°</option>
+              <option>60°×30°</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group"><label>Additional Notes</label><textarea placeholder="Any special requirements..."
+            id="cNotes"></textarea></div>
+        <button class="btn-primary" style="width:100%; justify-content:center; padding:14px;"
+          onclick="submitQuote()">Send Quote Request</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about-inner">
+      <div class="about-img">
+        <svg class="about-img-svg" viewBox="0 0 300 340" xmlns="http://www.w3.org/2000/svg">
+          <rect x="30" y="20" width="240" height="300" rx="16" fill="url(#factoryGrad)" opacity=".15" />
+          <defs>
+            <linearGradient id="factoryGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#00897B" />
+              <stop offset="100%" stop-color="#004D40" />
+            </linearGradient>
+          </defs>
+          <!-- Factory illustration -->
+          <rect x="50" y="160" width="80" height="100" rx="4" fill="#00897B" opacity=".7" />
+          <rect x="140" y="130" width="110" height="130" rx="4" fill="#00695C" opacity=".8" />
+          <rect x="60" y="100" width="20" height="60" rx="4" fill="#004D40" opacity=".6" />
+          <rect x="90" y="80" width="20" height="80" rx="4" fill="#004D40" opacity=".5" />
+          <!-- Chimney steam -->
+          <ellipse cx="70" cy="95" rx="8" ry="4" fill="rgba(178,223,219,.4)" />
+          <ellipse cx="70" cy="82" rx="6" ry="3" fill="rgba(178,223,219,.3)" />
+          <!-- Windows -->
+          <rect x="58" y="175" width="18" height="18" rx="2" fill="rgba(255,255,255,.6)" />
+          <rect x="82" y="175" width="18" height="18" rx="2" fill="rgba(255,255,255,.6)" />
+          <rect x="150" y="150" width="20" height="20" rx="2" fill="rgba(255,255,255,.5)" />
+          <rect x="178" y="150" width="20" height="20" rx="2" fill="rgba(255,255,255,.5)" />
+          <rect x="206" y="150" width="20" height="20" rx="2" fill="rgba(255,255,255,.5)" />
+          <rect x="150" y="180" width="20" height="20" rx="2" fill="rgba(255,255,255,.5)" />
+          <rect x="178" y="180" width="20" height="20" rx="2" fill="rgba(255,255,255,.5)" />
+          <!-- Ground -->
+          <rect x="30" y="260" width="240" height="8" rx="4" fill="#00897B" opacity=".3" />
+          <!-- Text -->
+          <text x="150" y="300" text-anchor="middle" font-family="Syne, sans-serif" font-size="13" font-weight="700"
+            fill="#00897B">SUVIDHA AIR SOLUTIONS</text>
+          <text x="150" y="316" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10"
+            fill="#6B7D7C">Ahmedabad, Gujarat, India</text>
+        </svg>
+        <div class="cert-badge">
+          <div class="cert-icon"
+            style="font-size:0;width:28px;height:28px;background:var(--teal-xlight);border-radius:50%;"></div>
+          <div class="cert-text">
+            <strong>ISO 9001:2008</strong>
+            <span>Certified Company</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-content">
+        <div class="section-tag">About Us</div>
+        <h2 class="section-title">A True Indian Brand for Air Engineering</h2>
+        <p>Suvidha Air Solutions is one of the few names instantly recognized as a true Indian brand for manufacturing
+          and exporting extensive product lines of precision engineered humidification machinery and air ventilators.
+        </p>
+        <p>Founded by Mr. Malkesh Patel, SAE swiftly crafted a whole new consumer segment for HVAC — rewriting marketing
+          rules by offering innovative, value-added products. That revolution is called <strong>"SUVIDHA AIR
+            SOLUTIONS."</strong></p>
+        <p>Customer-focused and committed to consistently offering better quality products and services, SAE has an
+          integrated manufacturing plant equipped with state-of-the-art machinery to meet increasing demand with
+          unprecedented quality standards.</p>
+        <p style="color:var(--teal-dark); font-weight:600; margin-top:20px;">There is only one way to describe SAE —
+          <em>Superior, Admirable and Excellence.</em>
+        </p>
+        <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:28px;">
+          <div style="background:var(--teal-xlight); border-radius:12px; padding:16px 20px; text-align:center;">
+            <div style="font-family:var(--font-head); font-size:22px; font-weight:800; color:var(--teal-dark);">ISO
+            </div>
+            <div style="font-size:11px; color:var(--gray); margin-top:2px;">9001:2008 Certified</div>
+          </div>
+          <div style="background:var(--teal-xlight); border-radius:12px; padding:16px 20px; text-align:center;">
+            <div style="font-family:var(--font-head); font-size:22px; font-weight:800; color:var(--teal-dark);">RoHS
+            </div>
+            <div style="font-size:11px; color:var(--gray); margin-top:2px;">Compliant Products</div>
+          </div>
+          <div style="background:var(--teal-xlight); border-radius:12px; padding:16px 20px; text-align:center;">
+            <div style="font-family:var(--font-head); font-size:22px; font-weight:800; color:var(--teal-dark);">PAN
+            </div>
+            <div style="font-size:11px; color:var(--gray); margin-top:2px;">India Delivery</div>
+          </div>
+        </div>
+        <div class="contact-row" style="margin-top:24px;">
+          <a href="tel:+919825141727">+91 98251 41727 (Call / WhatsApp)</a>
+          <a href="mailto:suvidhaair@gmail.com">suvidhaair@gmail.com</a>
+          <a href="#">1016, Gala Empire, Drive-in Road, Thaltej, Near T.V. Tower, Ahmedabad, Gujarat, India</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+          <img src="/logo.png" alt="Logo" style="width: 32px; border-radius: 6px;">
+          <div class="nav-logo-text" style="color:#fff;font-size:18px;">Suvidha Air Solutions</div>
+        </div>
+        <p>Manufacturers & exporters of precision engineered humidification machinery, air ventilators, and evaporative
+          cooling solutions since 2004.</p>
+        <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
+          <span class="iso-badge">ISO 9001:2008</span>
+          <span class="iso-badge">RoHS Compliant</span>
+          <span class="iso-badge">Made in India</span>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <a href="#products">Standard Cooling Pads</a>
+        <a href="#custom">Custom Sizes</a>
+        <a href="#">Cellulose Media</a>
+        <a href="#">Evaporative Coolers</a>
+        <a href="#">Humidification Systems</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#about">About Us</a>
+        <a href="#">Quality Policy</a>
+        <a href="#">Certifications</a>
+        <a href="#">Careers</a>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <a href="tel:+919825141727">+91 98251 41727</a>
+        <a href="mailto:suvidhaair@gmail.com">suvidhaair@gmail.com</a>
+        <a href="#">Shipping Policy</a>
+        <a href="#">Return Policy</a>
+        <a href="#">Track Order</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span style="color:rgba(255,255,255,.3);">© 2024 Suvidha Air Solutions Pvt. Ltd.</span>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <span style="font-size:12px;">Secure payments via</span>
+        <span
+          style="background:rgba(255,255,255,.1);padding:4px 10px;border-radius:6px;font-size:12px;font-weight:700;color:#fff;">Razorpay</span>
+        <span
+          style="background:rgba(255,255,255,.1);padding:4px 10px;border-radius:6px;font-size:12px;font-weight:700;color:#fff;">Delhivery</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast">
+    <span id="toastMsg">Added to cart!</span>
+  </div>
+
+  <script>
+    // Product data
+    const PRODUCTS = [
+      { id: "prod_1", size: "400(H) × 270(W) × 30(D)", h: 400, w: 270, d: 30, price: 700, badge: "Best Seller" },
+      { id: "prod_2", size: "610(H) × 254(W) × 38(D)", h: 610, w: 254, d: 38, price: 1100, badge: "Popular" },
+      { id: "prod_3", size: "580(H) × 275(W) × 40(D)", h: 580, w: 275, d: 40, price: 1100, badge: "" },
+      { id: "prod_4", size: "585(H) × 356(W) × 90(D)", h: 585, w: 356, d: 90, price: 1400, badge: "High Efficiency" },
+      { id: "prod_5", size: "360(H) × 210(W) × 40(D)", h: 360, w: 210, d: 40, price: 700, badge: "Compact" },
+      { id: "prod_6", size: "900(H) × 600(W) × 100(D)", h: 900, w: 600, d: 100, price: 2200, badge: "Industrial" },
+    ];
+
+    const COLORS = [
+      { name: "Brown", hex: "#8B4513" },
+      { name: "Green", hex: "#2E8B57" },
+      { name: "Blue", hex: "#4682B4" },
+      { name: "Grey", hex: "#708090" },
+      { name: "Terracotta", hex: "#D2691E" },
+    ];
+
+    let selectedColors = {};
+
+    // Render products
+    function renderProducts() {
+      const grid = document.getElementById('productGrid');
+      const productsHtml = PRODUCTS.slice(0, 5).map(p => {
+        const colorOpts = COLORS.map((c, i) =>
+          `<div class="prod-color ${i === 0 ? 'sel' : ''}" style="background:${c.hex}" 
+        title="${c.name}" onclick="setProductColor('${p.id}',${i},this)"></div>`
+        ).join('');
+        const badge = p.badge ? `<div class="product-badge">${p.badge}</div>` : '';
+        return `
+    <div class="product-card" id="pcard-${p.id}">
+      <div class="product-card-img" onclick="window.location.href='/products.html?buy=${p.id}'">
+        ${badge}
+        <svg width="140" height="140" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg" id="psvg-${p.id}">
+          ${productSVG(p, COLORS[0].hex)}
+        </svg>
+      </div>
+      <div class="product-card-body">
+        <div class="product-size">CelPad Pro</div>
+        <div class="product-name">${p.h} × ${p.w} × ${p.d} mm</div>
+        <div class="color-options" id="colors-${p.id}">${colorOpts}</div>
+        <div class="product-specs">
+          <span class="spec-chip">H: ${p.h}mm</span>
+          <span class="spec-chip">W: ${p.w}mm</span>
+          <span class="spec-chip">D: ${p.d}mm</span>
+          <span class="spec-chip">45°×45°</span>
+        </div>
+        <div class="product-price-row">
+          <div class="product-price">₹${p.price.toLocaleString()} <span>+ GST</span></div>
+          <button class="add-btn" onclick="window.location.href='/products.html?buy=${p.id}'" title="Buy Now">→</button>
+        </div>
+      </div>
+    </div>`;
+      }).join('');
+
+      grid.innerHTML = productsHtml + `
+    <div class="product-card" style="display:flex; align-items:center; justify-content:center; flex-direction:column; background: #f0f7f5; border: 2px dashed #00897b; cursor:pointer; min-height: 380px;" onclick="window.location.href='/products.html'">
+      <div style="font-size: 40px; margin-bottom: 16px;">🔍</div>
+      <h3 style="font-family: var(--font-head); color: var(--teal-dark); font-size: 20px;">Browse More</h3>
+      <p style="color: var(--gray); font-size: 14px; margin-top: 8px;">View all sizes & options</p>
+    </div>
+  `;
+    }
+
+    function productSVG(p, color) {
+      const dark = shadeColor(color, -30);
+      return `
+    <rect x="15" y="20" width="80" height="100" rx="2" fill="${color}" opacity=".92"/>
+    <g stroke="rgba(0,0,0,.15)" stroke-width=".8" fill="none">
+      <line x1="15" y1="34" x2="95" y2="34"/><line x1="15" y1="48" x2="95" y2="48"/>
+      <line x1="15" y1="62" x2="95" y2="62"/><line x1="15" y1="76" x2="95" y2="76"/>
+      <line x1="15" y1="90" x2="95" y2="90"/><line x1="15" y1="104" x2="95" y2="104"/>
+      <line x1="35" y1="20" x2="35" y2="120"/><line x1="55" y1="20" x2="55" y2="120"/>
+      <line x1="75" y1="20" x2="75" y2="120"/>
+    </g>
+    <g stroke="rgba(255,200,100,.2)" stroke-width=".6" fill="none">
+      <line x1="15" y1="20" x2="95" y2="120"/><line x1="30" y1="20" x2="95" y2="105"/>
+      <line x1="15" y1="35" x2="80" y2="120"/>
+    </g>
+    <polygon points="95,20 120,42 120,120 95,120" fill="${dark}"/>
+    <polygon points="15,20 95,20 120,42 40,42" fill="rgba(0,137,123,.35)"/>
+    <ellipse cx="65" cy="126" rx="40" ry="6" fill="rgba(0,0,0,.08)"/>`;
+    }
+
+    function shadeColor(hex, pct) {
+      const n = parseInt(hex.slice(1), 16);
+      const r = Math.max(0, Math.min(255, (n >> 16) + pct));
+      const g = Math.max(0, Math.min(255, ((n >> 8) & 0xff) + pct));
+      const b = Math.max(0, Math.min(255, (n & 0xff) + pct));
+      return `#${((r << 16) | (g << 8) | b).toString(16).padStart(6, '0')}`;
+    }
+
+    function setProductColor(pid, cidx, el) {
+      selectedColors[pid] = cidx;
+      document.querySelectorAll(`#colors-${pid} .prod-color`).forEach(e => e.classList.remove('sel'));
+      el.classList.add('sel');
+      const color = COLORS[cidx].hex;
+      const p = PRODUCTS.find(x => x.id === pid);
+      document.getElementById(`psvg-${pid}`).innerHTML = productSVG(p, color);
+    }
+
+    async function submitQuote() {
+      const n = document.getElementById('cName').value.trim();
+      const p = document.getElementById('cPhone').value.trim();
+      const e = document.getElementById('cEmail') ? document.getElementById('cEmail').value.trim() : '';
+      const h = document.getElementById('cH') ? document.getElementById('cH').value.trim() : '';
+      const w = document.getElementById('cW') ? document.getElementById('cW').value.trim() : '';
+      const d = document.getElementById('cD') ? document.getElementById('cD').value.trim() : '';
+      const qty2 = document.getElementById('cQty') ? document.getElementById('cQty').value.trim() : '';
+      const notes = document.getElementById('cNotes') ? document.getElementById('cNotes').value.trim() : '';
+      if (!n || !p) { showToast('⚠️ Please fill name and phone'); return; }
+      try {
+        const r = await fetch('/api/products/quote', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: n, phone: p, email: e, h, w, d, qty: qty2, notes })
+        });
+        if (r.ok) {
+          showToast('✅ Quote sent! We\'ll contact you within 24 hours.');
+          ['cName', 'cPhone', 'cEmail', 'cH', 'cW', 'cD', 'cQty', 'cNotes'].forEach(id => {
+            const el = document.getElementById(id); if (el) el.value = '';
+          });
+        } else {
+          showToast('⚠️ Could not send quote. Please call us directly.');
+        }
+      } catch (err) {
+        showToast('⚠️ Could not send quote. Please call us directly.');
+      }
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      document.getElementById('toastMsg').textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 3500);
+    }
+
+    function toggleMenu() {
+      showToast('📱 Menu — Call us: +91 98251 41727');
+    }
+
+    renderProducts();
+  </script>
+</body>
+
+</html>

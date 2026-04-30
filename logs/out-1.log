@@ -1,0 +1,39 @@
+2026-04-23 05:16:13: ✅ SuvidhaAir server running on port 3000
+2026-04-23 05:16:13: 📦 Database: db.json
+2026-04-23 05:16:13: 🔐 Admin: /admin (password: 121004)
+2026-04-23 06:01:20: ✅ SuvidhaAir server running on port 3000
+2026-04-23 06:01:20: 📦 Database: db.json
+2026-04-23 06:01:20: 🔐 Admin: /admin (password: 121004)
+2026-04-23 06:01:51: ✅ SuvidhaAir server running on port 3000
+2026-04-23 06:01:51: 📦 Database: db.json
+2026-04-23 06:01:51: 🔐 Admin: /admin (password: 121004)
+2026-04-23 06:03:15: ✅ Razorpay order created: order_SgpQ9rjnXX6LPE for amount 649
+2026-04-23 06:13:01: ✅ Razorpay order created: order_SgpaSpaiXB4H6x for amount 649
+2026-04-23 06:15:42: ✅ Razorpay order created: order_SgpdIU3uhdvZV2 for amount 649
+2026-04-23 06:24:40: ✅ SuvidhaAir server running on port 3000
+2026-04-23 06:24:40: 📦 Database: db.json
+2026-04-23 06:24:40: 🔐 Admin: /admin (password: 121004)
+2026-04-23 06:28:47: ✅ SuvidhaAir server running on port 3000
+2026-04-23 06:28:47: 📦 Database: db.json
+2026-04-23 06:28:47: 🔐 Admin: /admin (password: 121004)
+2026-04-23 06:29:54: ✅ Razorpay order created: order_SgpsJCl8FXkTjA for amount 649
+2026-04-23 06:32:01: ✅ Razorpay order created: order_SgpuXRbLcoNJIn for amount 448
+2026-04-23 06:42:38: ✅ SuvidhaAir server running on port 3000
+2026-04-23 06:42:38: 📦 Database: db.json
+2026-04-23 06:42:38: 🔐 Admin: /admin (password: 121004)
+2026-04-23 06:44:15: ✅ SuvidhaAir server running on port 3000
+2026-04-23 06:44:15: 📦 Database: db.json
+2026-04-23 06:44:15: 🔐 Admin: /admin (password: 121004)
+2026-04-23 06:46:44: ✅ Razorpay order created: order_SgqA4wwaDe5KAt for amount 649
+2026-04-23 06:47:03: 🚚 Creating Delhivery shipment for order e866f19a-1646-4301-913b-9304bc1c6749...
+2026-04-23 06:47:03: Delhivery response: {"rmk":"Unsupported format: open","error":true,"success":false,"cash_pickups_count":0,"cash_pickups":0,"cod_count":0,"package_count":0,"upload_wbn":null,"replacement_count":0,"cod_amount":0,"prepaid_count":0,"pickups_count":0,"packages":[]}
+2026-04-23 06:53:51: ✅ Razorpay order created: order_SgqHba5lW3uWBc for amount 2199
+2026-04-23 06:54:14: 🚚 Creating Delhivery shipment for order 6a951e7e-9ec9-4045-a4b4-78dcd7cff655...
+2026-04-23 06:54:15: Delhivery response: {"rmk":"Unsupported format: open","error":true,"success":false,"cash_pickups_count":0,"cash_pickups":0,"cod_count":0,"package_count":0,"upload_wbn":null,"replacement_count":0,"cod_amount":0,"prepaid_count":0,"pickups_count":0,"packages":[]}
+2026-04-23 07:00:28: ✅ Razorpay order created: order_SgqOaU91N5U4Xi for amount 1748
+2026-04-23 07:01:03: 🚚 Creating Delhivery shipment for order d9cc24c6-6a2b-4281-81c7-7119a2d74ee0...
+2026-04-23 07:01:03: Delhivery response: {"rmk":"Unsupported format: open","error":true,"success":false,"cash_pickups_count":0,"cash_pickups":0,"cod_count":0,"package_count":0,"upload_wbn":null,"replacement_count":0,"cod_amount":0,"prepaid_count":0,"pickups_count":0,"packages":[]}
+2026-04-23 07:11:00: ✅ Razorpay order created: order_SgqZiR7q4go8vK for amount 548
+2026-04-23 07:11:20: 🚚 Creating Delhivery shipment for order ed4537dc-fe05-438d-97cd-ff1917ce760f...
+2026-04-23 07:11:20: Delhivery response: {"rmk":"Unsupported format: open","error":true,"success":false,"cash_pickups_count":0,"cash_pickups":0,"cod_count":0,"package_count":0,"upload_wbn":null,"replacement_count":0,"cod_amount":0,"prepaid_count":0,"pickups_count":0,"packages":[]}
+2026-04-25 14:06:24: ✅ Razorpay order created: order_ShkikhCVxmUuhR for amount 698

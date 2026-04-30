@@ -1,0 +1,25 @@
+2026-04-23 06:30:23: Verify payment error: ReferenceError: body is not defined
+    at /var/www/suvidhaair.in/routes/payment.js:101:15
+    at Layer.handle [as handle_request] (/var/www/suvidhaair.in/node_modules/express/lib/router/layer.js:95:5)
+    at next (/var/www/suvidhaair.in/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/var/www/suvidhaair.in/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/var/www/suvidhaair.in/node_modules/express/lib/router/layer.js:95:5)
+    at /var/www/suvidhaair.in/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/var/www/suvidhaair.in/node_modules/express/lib/router/index.js:346:12)
+    at next (/var/www/suvidhaair.in/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/var/www/suvidhaair.in/node_modules/express/lib/router/index.js:175:3)
+    at router (/var/www/suvidhaair.in/node_modules/express/lib/router/index.js:47:12)
+2026-04-23 06:32:21: Verify payment error: ReferenceError: body is not defined
+    at /var/www/suvidhaair.in/routes/payment.js:101:15
+    at Layer.handle [as handle_request] (/var/www/suvidhaair.in/node_modules/express/lib/router/layer.js:95:5)
+    at next (/var/www/suvidhaair.in/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/var/www/suvidhaair.in/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/var/www/suvidhaair.in/node_modules/express/lib/router/layer.js:95:5)
+    at /var/www/suvidhaair.in/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/var/www/suvidhaair.in/node_modules/express/lib/router/index.js:346:12)
+    at next (/var/www/suvidhaair.in/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/var/www/suvidhaair.in/node_modules/express/lib/router/index.js:175:3)
+    at router (/var/www/suvidhaair.in/node_modules/express/lib/router/index.js:47:12)
+2026-04-27 08:06:15: Error: ENOENT: no such file or directory, stat '/var/www/suvidhaair.in/public/index.html'
+2026-04-27 08:06:18: Error: ENOENT: no such file or directory, stat '/var/www/suvidhaair.in/public/index.html'
+2026-04-27 08:06:20: Error: ENOENT: no such file or directory, stat '/var/www/suvidhaair.in/public/index.html'

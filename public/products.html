@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suvidha Air Engineers | Premium Cooling Pads</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="logo">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16 2L2 9L16 16L30 9L16 2Z" fill="#00897B"/>
+        <path d="M2 23L16 30L30 23V9L16 16L2 9V23Z" fill="#00695C"/>
+      </svg>
+      Suvidha Air
+    </a>
+    <div class="nav-links">
+      <a href="#" onclick="navigate('products')">Products</a>
+      <!-- Admin link hidden as requested -->
+    </div>
+  </nav>
+
+  <!-- View: Products -->
+  <section id="view-products" class="view active">
+    <div class="hero">
+      <h1>Premium Cooling Solutions</h1>
+      <p>High-performance CelPad cooling pads for residential and industrial applications. Engineered for durability and maximum efficiency.</p>
+    </div>
+    <div class="product-grid" id="productGrid">
+      <!-- Loaded via JS -->
+    </div>
+  </section>
+
+  <!-- View: Checkout -->
+  <section id="view-checkout" class="view">
+    <div style="margin-bottom: 2rem">
+      <button class="btn" onclick="navigate('products')" style="background:#e2e8f0">← Back to Products</button>
+    </div>
+    <h1 style="margin-bottom: 2rem">Complete Your Purchase</h1>
+    
+    <div class="checkout-container">
+      <div class="card">
+        <h3 style="margin-bottom: 1.5rem">Shipping Details</h3>
+        <div class="grid-2" style="display:grid; grid-template-columns: 1fr 1fr; gap: 1rem">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" id="buyName" class="form-control" placeholder="John Doe">
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" id="buyPhone" class="form-control" placeholder="9876543210">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" id="buyEmail" class="form-control" placeholder="john@example.com">
+        </div>
+        <div class="form-group">
+          <label>Shipping Address</label>
+          <textarea id="buyAddr" class="form-control" rows="3" placeholder="Street, Apartment, Locality"></textarea>
+        </div>
+        <div class="grid-3" style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem">
+          <div class="form-group">
+            <label>City</label>
+            <input type="text" id="buyCity" class="form-control" placeholder="Ahmedabad">
+          </div>
+          <div class="form-group">
+            <label>PIN Code</label>
+            <input type="text" id="buyPin" class="form-control" placeholder="380001">
+          </div>
+          <div class="form-group">
+            <label>State</label>
+            <input type="text" id="buyState" class="form-control" value="Gujarat">
+          </div>
+        </div>
+      </div>
+
+      <div class="order-summary card">
+        <h3 style="margin-bottom: 1.5rem">Order Summary</h3>
+        <div id="checkoutItem" style="margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center">
+          <div>
+            <div id="checkoutItemName" style="font-weight: 600">Product Name</div>
+            <div style="font-size: 0.875rem; color: var(--text-light)">Qty: 1</div>
+          </div>
+          <div id="checkoutItemPrice" style="font-weight: 600">₹0</div>
+        </div>
+        
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span id="checkSubtotal">₹0</span>
+        </div>
+        <div class="summary-row">
+          <span>GST (18%)</span>
+          <span id="checkGst">₹0</span>
+        </div>
+        <div class="summary-row">
+          <span>Shipping</span>
+          <span id="checkShip">₹0</span>
+        </div>
+        <div class="summary-row summary-total">
+          <span>Total Amount</span>
+          <span id="checkTotal">₹0</span>
+        </div>
+        
+        <button id="payBtn" class="btn btn-primary btn-block" style="margin-top: 2rem" onclick="processPayment()">
+          Complete Payment
+        </button>
+        <p style="font-size: 0.75rem; color: var(--text-light); text-align: center; margin-top: 1rem">
+          Secure payment processed by Razorpay
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- View: Success -->
+  <section id="view-success" class="view">
+    <div class="card success-card">
+      <div class="success-icon">✓</div>
+      <h1>Order Confirmed!</h1>
+      <p>Thank you for your purchase. We've received your payment and our team is preparing your shipment.</p>
+      
+      <div class="tracking-info">
+        <div class="summary-row">
+          <span>Order ID:</span>
+          <span id="successOrderId" style="font-weight: 600">...</span>
+        </div>
+        <div class="summary-row">
+          <span>Payment ID:</span>
+          <span id="successPaymentId" style="font-weight: 600">...</span>
+        </div>
+        <div class="summary-row" style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #e2e8f0">
+          <span>Delhivery Waybill:</span>
+          <span id="successWaybill" style="font-weight: 700; color: var(--primary)">...</span>
+        </div>
+        <div id="waybillStatus" style="margin-top: 0.5rem; font-size: 0.875rem">
+          Generating shipping label...
+        </div>
+      </div>
+      
+      <button class="btn btn-primary" onclick="navigate('products')">Continue Shopping</button>
+    </div>
+  </section>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>
