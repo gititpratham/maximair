@@ -55,4 +55,51 @@ app.listen(PORT, () => {
   console.log(`🔐 Admin: /admin (password: 121004)`);
 });
 
+// Polling for Order Status Updates (Every 1 hour)
+setInterval(async () => {
+  const { db } = require('./db/database');
+  const axios = require('axios');
+  const orders = db.get('orders').value();
+  const settings = db.get('settings').value();
+  
+  // Find active orders that have a waybill but are not yet delivered/cancelled
+  const activeOrders = orders.filter(o => 
+    (o.status === 'picked_up' || o.status === 'shipped' || o.status === 'processing') && o.delhiveryWaybill
+  );
+
+  for (const order of activeOrders) {
+    try {
+      const url = `https://staging-express.delhivery.com/api/v1/packages/json/?waybill=${order.delhiveryWaybill}`;
+      const r = await axios.get(url, {
+        headers: {
+          'Authorization': `Token ${settings.delhiveryToken}`,
+          'Accept': 'application/json'
+        },
+        timeout: 10000
+      });
+
+      if (r.data && r.data.ShipmentData && r.data.ShipmentData.length > 0) {
+        const status = r.data.ShipmentData[0].Shipment.Status.Status;
+        let newStatus = null;
+
+        if (status === 'Delivered') {
+          newStatus = 'delivered';
+        } else if (['In Transit', 'Dispatched', 'Pending'].includes(status)) {
+          newStatus = 'shipped';
+        }
+
+        if (newStatus && newStatus !== order.status) {
+          db.get('orders').find({ id: order.id }).assign({ 
+            status: newStatus, 
+            updatedAt: new Date().toISOString() 
+          }).write();
+          console.log(`[Background Job] Order ${order.id} status updated to ${newStatus} (from Delhivery: ${status})`);
+        }
+      }
+    } catch (e) {
+      console.error(`[Background Job] Error polling tracking for ${order.id}:`, e.message);
+    }
+  }
+}, 60 * 60 * 1000); // 1 hour
+
 module.exports = app;

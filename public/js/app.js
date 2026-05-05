@@ -4,7 +4,8 @@ let state = {
   products: [],
   cart: null, // single product purchase for now
   order: null,
-  pincodeServiceable: false
+  pincodeServiceable: false,
+  shippingCost: 99
 };
 
 const COLORS = [
@@ -82,23 +83,40 @@ function startCheckout(pid) {
   const product = state.products.find(x => x.id === pid);
   if (!product) return;
   state.cart = { product, qty: 1 };
+  state.shippingCost = 99; // Reset
   updateCheckoutSummary();
   navigate('checkout');
 }
 
-function updateCheckoutSummary() {
+async function updateCheckoutSummary() {
   if (!state.cart) return;
   const { product, qty } = state.cart;
   const base = product.price * qty;
-  const gst = Math.round(base * 0.18);
-  const shipping = base >= 2000 ? 0 : 99;
-  const total = base + gst + shipping;
+  
+  // Dynamic Shipping
+  const pincode = document.getElementById('buyPin')?.value.trim();
+  if (pincode && pincode.length === 6 && state.pincodeServiceable) {
+    try {
+      const weight = qty * 0.5; // 500gms per pad
+      const r = await fetch(`/api/delhivery/shipping-cost?dest=${pincode}&weight=${weight}`);
+      const data = await r.json();
+      state.shippingCost = data.cost;
+    } catch (e) {
+      console.warn('Shipping cost fetch failed', e);
+    }
+  } else {
+    state.shippingCost = base >= 2000 ? 0 : 99; // Default fallback
+  }
+
+  const shipping = state.shippingCost;
+  const gst = Math.round((base + shipping) * 0.18);
+  const total = base + shipping + gst;
 
   document.getElementById('checkoutItemName').textContent = product.name;
   document.getElementById('checkoutItemPrice').textContent = `₹${product.price.toLocaleString()}`;
   document.getElementById('checkSubtotal').textContent = `₹${base.toLocaleString()}`;
   document.getElementById('checkGst').textContent = `₹${gst.toLocaleString()}`;
-  document.getElementById('checkShip').textContent = shipping === 0 ? 'FREE' : `₹${shipping}`;
+  document.getElementById('checkShip').textContent = shipping === 0 ? 'FREE' : `₹${shipping.toLocaleString()}`;
   document.getElementById('checkTotal').textContent = `₹${total.toLocaleString()}`;
 }
 
@@ -133,6 +151,7 @@ async function processPayment() {
       body: JSON.stringify({
         productId: state.cart.product.id,
         qty: state.cart.qty,
+        shippingCost: state.shippingCost,
         name, email, phone, address, pincode, city, state: stateVal
       })
     });
@@ -196,18 +215,22 @@ async function verifyPayment(orderId, rzpResponse) {
 function showSuccess(data) {
   document.getElementById('successOrderId').textContent = data.orderId;
   document.getElementById('successPaymentId').textContent = data.paymentId;
-  document.getElementById('successWaybill').textContent = data.waybill || 'TBD';
+  
+  const waybillRow = document.getElementById('successWaybillRow');
+  if (waybillRow) waybillRow.style.display = 'none'; // Hide waybill row if it exists
   
   const statusEl = document.getElementById('waybillStatus');
-  if (data.waybill) {
+  if (data.trackingUrl) {
     statusEl.innerHTML = `
-      <div style="color:var(--primary); font-weight:600">✅ Delhivery Shipment Created</div>
-      <div style="font-size:0.75rem; color:var(--text-light)">Label generated automatically</div>
+      <div style="color:var(--primary); font-weight:600; margin-bottom: 0.5rem">✅ Shipment Created Successfully</div>
+      <a href="${data.trackingUrl}" target="_blank" class="btn btn-outline" style="width: 100%; text-decoration: none; color: var(--primary); border-color: var(--primary)">
+        Track Order on Delhivery →
+      </a>
     `;
   } else {
     statusEl.innerHTML = `
       <div style="color:var(--accent); font-weight:600">📦 Preparing for Shipment</div>
-      <div style="font-size:0.75rem; color:var(--text-light)">Our team will update your tracking number shortly via SMS.</div>
+      <div style="font-size:0.875rem; color:var(--text-light)">Our team will update your tracking number shortly via SMS.</div>
     `;
   }
   
@@ -232,13 +255,20 @@ async function verifyPincode() {
     const r = await fetch('/api/delhivery/check-pincode?dest=' + pinInput);
     const data = await r.json();
     if (data.serviceable) {
-      statusEl.textContent = '✅ Delivery Available';
+      let msg = '✅ Delivery Available';
+      if (data.tat) {
+        msg += ` (Est. ${data.tat} days)`;
+      }
+      statusEl.textContent = msg;
       statusEl.style.color = '#22c55e'; // green
       state.pincodeServiceable = true;
+      // Trigger summary update to fetch shipping cost
+      updateCheckoutSummary();
     } else {
       statusEl.textContent = '❌ Not Serviceable';
       statusEl.style.color = '#ef4444'; // red
       state.pincodeServiceable = false;
+      updateCheckoutSummary();
     }
   } catch (e) {
     statusEl.textContent = '⚠️ Check Failed';
@@ -250,4 +280,14 @@ async function verifyPincode() {
 // ── Init ───────────────────────────────────────────────────────────────────
 window.addEventListener('DOMContentLoaded', () => {
   loadProducts();
+  
+  // Auto-verify pincode on input
+  const pinInput = document.getElementById('buyPin');
+  if (pinInput) {
+    pinInput.addEventListener('input', (e) => {
+      if (e.target.value.trim().length === 6) {
+        verifyPincode();
+      }
+    });
+  }
 });

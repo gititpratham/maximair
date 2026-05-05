@@ -147,6 +147,7 @@ tr:hover td { background:#fafcfb; }
 .status-pending { background:#fff8e1; color:#f57f17; }
 .status-confirmed { background:#e8f5e9; color:#2e7d32; }
 .status-processing { background:#e3f2fd; color:#1565c0; }
+.status-picked_up { background:#fff3e0; color:#ef6c00; }
 .status-shipped { background:#ede7f6; color:#4527a0; }
 .status-delivered { background:#e0f2f1; color:#004d40; }
 .status-cancelled { background:#ffebee; color:#b71c1c; }
@@ -791,9 +792,32 @@ function renderOrders(orders) {
       <td><span class="status status-${o.status}">${o.status}</span></td>
       <td style="font-size:11px;color:var(--muted)">${o.delhiveryWaybill || '—'}</td>
       <td style="font-size:12px;color:var(--muted)">${new Date(o.createdAt).toLocaleDateString('en-IN')}</td>
-      <td><button class="btn btn-outline btn-sm" onclick="openOrderModal('${o.id}')">Edit</button></td>
+      <td>
+        ${o.status === 'processing' ? `<button class="btn btn-green btn-sm" style="margin-right:8px" onclick="requestPickup('${o.id}')">Pickup</button>` : ''}
+        <button class="btn btn-outline btn-sm" onclick="openOrderModal('${o.id}')">Edit</button>
+      </td>
     </tr>
   `).join('');
+}
+
+async function requestPickup(id) {
+  if (!confirm('Request Delhivery pickup for this order?')) return;
+  try {
+    const r = await fetch(`${API}/api/admin/pickup`, {
+      method: 'POST',
+      headers: h(),
+      body: JSON.stringify({ orderId: id })
+    });
+    const data = await r.json();
+    if (r.ok) {
+      toast('Pickup requested successfully!');
+      loadOrders(); // Refresh table
+    } else {
+      toast('Pickup failed: ' + (data.error || data.message || 'Unknown error'));
+    }
+  } catch(e) {
+    toast('Error requesting pickup');
+  }
 }
 
 function openOrderModal(id) {

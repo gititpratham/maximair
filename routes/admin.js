@@ -69,6 +69,51 @@ router.patch('/orders/:id', adminAuth, (req, res) => {
   res.json({ success: true, order: db.get('orders').find({ id: req.params.id }).value() });
 });
 
+// Request Delhivery Pickup
+router.post('/pickup', adminAuth, async (req, res) => {
+  const { orderId } = req.body;
+  const order = db.get('orders').find({ id: orderId }).value();
+  if (!order) return res.status(404).json({ error: 'Order not found' });
+  if (!order.delhiveryWaybill) return res.status(400).json({ error: 'No waybill found for this order' });
+
+  const settings = db.get('settings').value();
+  const axios = require('axios');
+  
+  // Create pickup payload
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  const pickupDate = tomorrow.toISOString().split('T')[0];
+  const payload = {
+    pickup_location: 'Morva',
+    pickup_time: '10:00:00',
+    pickup_date: pickupDate,
+    expected_package_count: 1
+  };
+
+  try {
+    const r = await axios.post('https://staging-express.delhivery.com/api/p/dispatch/', payload, {
+      headers: {
+        'Authorization': `Token ${settings.delhiveryToken}`,
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      timeout: 15000
+    });
+    
+    if (r.data && !r.data.error) {
+      db.get('orders').find({ id: orderId }).assign({ 
+        status: 'picked_up', 
+        updatedAt: new Date().toISOString() 
+      }).write();
+      return res.json({ success: true, message: 'Pickup requested successfully' });
+    } else {
+      return res.status(400).json({ error: r.data.message || 'Delhivery rejected pickup request' });
+    }
+  } catch(e) {
+    console.error('Pickup API Error:', e.response ? JSON.stringify(e.response.data) : e.message);
+    return res.status(500).json({ error: 'Failed to communicate with Delhivery API' });
+  }
+});
 // All products
 router.get('/products', adminAuth, (req, res) => {
   res.json(db.get('products').value());

@@ -11,7 +11,7 @@ function getSettings() {
 function getBase(env) {
   return env === 'production'
     ? 'https://track.delhivery.com'
-    : 'https://staging-express.delhivery.com';
+    : 'https://express-dev-test.delhivery.com';
 }
 
 function delhiveryHeaders(token, contentType = 'application/json') {
@@ -29,22 +29,112 @@ router.get('/check-pincode', async (req, res) => {
   
   const s = getSettings();
   const env = s.delhiveryEnv || 'staging';
-  // Use a hardcoded origin or fetch from DB if available. Defaulting to 380001 (Ahmedabad) as per warehouse logic
-  const origin = '380001'; 
+  const base = 'https://track.delhivery.com'; // Use production for public checkout
   
   try {
-    // We use the production track.delhivery.com API for pincode serviceability to avoid test token issues
-    const r = await axios.get(`https://track.delhivery.com/c/api/pin-codes/json/`, {
+    // 1. Check serviceability
+    const servResp = await axios.get(`${base}/c/api/pin-codes/json/`, {
       params: { filter_codes: dest },
       headers: delhiveryHeaders(s.delhiveryToken, undefined),
       timeout: 10000
     });
-    // Check delhivery response format
-    const isServiceable = r.data && r.data.delivery_codes && r.data.delivery_codes.length > 0;
-    res.json({ serviceable: !!isServiceable, message: isServiceable ? 'Pincode is serviceable' : 'Pincode not serviceable' });
+    
+    const isServiceable = servResp.data && servResp.data.delivery_codes && servResp.data.delivery_codes.length > 0;
+    
+    if (!isServiceable) {
+      return res.json({ serviceable: false, message: 'Pincode not serviceable' });
+    }
+
+    // 2. Get TAT
+    let origin = '384445'; // Default/Fallback as requested
+    try {
+      // Try to get actual pickup pincode from Delhivery
+      const whResp = await axios.get(`${base}/api/backend/clientwarehouse/all/`, {
+        headers: delhiveryHeaders(s.delhiveryToken, undefined),
+        timeout: 5000
+      });
+      if (whResp.data && Array.isArray(whResp.data) && whResp.data.length > 0) {
+        origin = whResp.data[0].pincode || origin;
+      }
+    } catch (whErr) {
+      console.warn('Pickup pincode fetch failed, using fallback:', whErr.message);
+    }
+
+    let tat = null;
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    const pad = (n) => n.toString().padStart(2, '0');
+    const tomorrowStr = `${tomorrow.getFullYear()}-${pad(tomorrow.getMonth()+1)}-${pad(tomorrow.getDate())}`;
+    const tomorrowTimeStr = `${tomorrowStr} 10:00`;
+    
+    try {
+      console.log(`🚚 Fetching TAT from production for origin ${origin} to ${dest}...`);
+      const tatResp = await axios.get(`${base}/api/dc/expected_tat`, {
+        params: { 
+          origin_pin: origin, 
+          destination_pin: dest,
+          mot: 'S',
+          pdt: 'B2C',
+          expected_pd: tomorrowTimeStr
+        },
+        headers: delhiveryHeaders(s.delhiveryToken),
+        timeout: 5000
+      });
+      
+      console.log('TAT Response:', JSON.stringify(tatResp.data));
+
+      if (tatResp.data && tatResp.data.success && tatResp.data.data) {
+        tat = tatResp.data.data.tat;
+      }
+    } catch (tatErr) {
+      console.warn('TAT fetch failed:', tatErr.response ? JSON.stringify(tatErr.response.data) : tatErr.message);
+    }
+
+    res.json({ 
+      serviceable: true, 
+      message: 'Pincode is serviceable',
+      tat: tat,
+      origin: origin
+    });
   } catch (e) {
     console.error('Checkout Serviceability Check Failed:', e.message);
     res.json({ serviceable: false, message: 'Pincode verification failed' });
+  }
+});
+
+// ── GET /api/delhivery/shipping-cost (PUBLIC, for checkout) ──────────────────
+router.get('/shipping-cost', async (req, res) => {
+  const { dest, weight } = req.query; // weight in kg
+  if (!dest) return res.json({ cost: 99, error: 'Missing destination' });
+
+  const s = getSettings();
+  const base = 'https://track.delhivery.com';
+  const origin = '384445';
+  
+  try {
+    const r = await axios.get(`${base}/api/kinko/v1/invoice/charges/.json`, {
+      params: { 
+        md: 'S', // Surface
+        ss: 'Delivered',
+        d_pin: dest,
+        o_pin: origin,
+        cgm: Math.ceil(parseFloat(weight || 2.5) * 1000), // kg to grams
+        pt: 'Pre-paid'
+      },
+      headers: delhiveryHeaders(s.delhiveryToken),
+      timeout: 10000
+    });
+    
+    if (r.data && Array.isArray(r.data) && r.data.length > 0) {
+      // The API returns total_amount which includes taxes usually, or check documentation
+      const cost = Math.ceil(r.data[0].total_amount || 99);
+      res.json({ cost });
+    } else {
+      res.json({ cost: 99, message: 'Rate not found, using fallback' });
+    }
+  } catch (e) {
+    console.error('Shipping Cost API Error:', e.response ? JSON.stringify(e.response.data) : e.message);
+    res.json({ cost: 99, error: 'Rate fetch failed, using fallback' });
   }
 });
 
