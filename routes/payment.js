@@ -162,7 +162,7 @@ async function createDelhiveryShipment(order, paymentId) {
   const settings = db.get('settings').value();
 
   const shipmentData = {
-    format: 'open',
+    format: 'json',
     data: JSON.stringify({
       shipments: [{
         name: order.customer.name,

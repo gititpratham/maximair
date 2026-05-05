@@ -91,6 +91,8 @@ db.defaults({
     shippingFreeAbove: 2000,
     razorpayKeyId: 'rzp_test_SgS6ryaCihEJxn',
     delhiveryToken: '736cedf712c367a6d6b7f04d21e8b9d37604e118',
+    delhiveryEnv: 'staging',
+    delhiveryClientName: 'DEMOC',
     phone: '+91 98251 41727',
     email: 'info@suvidhaair.in'
   }

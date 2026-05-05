@@ -30,6 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/payment', require('./routes/payment'));
 app.use('/api/products', require('./routes/products'));
 app.use('/api/admin', require('./routes/admin'));
+app.use('/api/delhivery', require('./routes/delhivery'));
 
 // Health check
 app.get('/api/health', (req, res) => {
@@ -40,6 +41,8 @@ app.get('/api/health', (req, res) => {
 app.get('/admin', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'admin', 'index.html'));
 });
+
+
 
 // Catch-all: serve main site
 app.get('*', (req, res) => {

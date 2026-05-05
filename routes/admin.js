@@ -132,12 +132,14 @@ router.get('/settings', adminAuth, (req, res) => {
 });
 
 router.patch('/settings', adminAuth, (req, res) => {
-  const { shippingFlat, shippingFreeAbove, phone, email } = req.body;
+  const { shippingFlat, shippingFreeAbove, phone, email, delhiveryEnv, delhiveryClientName } = req.body;
   const updates = {};
   if (shippingFlat !== undefined) updates.shippingFlat = parseFloat(shippingFlat);
   if (shippingFreeAbove !== undefined) updates.shippingFreeAbove = parseFloat(shippingFreeAbove);
   if (phone) updates.phone = phone;
   if (email) updates.email = email;
+  if (delhiveryEnv) updates.delhiveryEnv = delhiveryEnv;
+  if (delhiveryClientName) updates.delhiveryClientName = delhiveryClientName;
   db.get('settings').assign(updates).write();
   res.json({ success: true });
 });

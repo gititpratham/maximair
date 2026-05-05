@@ -3,7 +3,8 @@ let state = {
   view: 'products',
   products: [],
   cart: null, // single product purchase for now
-  order: null
+  order: null,
+  pincodeServiceable: false
 };
 
 const COLORS = [
@@ -116,6 +117,11 @@ async function processPayment() {
     return;
   }
 
+  if (!state.pincodeServiceable) {
+    alert('The provided PIN Code is not serviceable by our logistics partner. Please provide a different PIN Code.');
+    return;
+  }
+
   const payBtn = document.getElementById('payBtn');
   payBtn.disabled = true;
   payBtn.textContent = 'Processing...';
@@ -206,6 +212,39 @@ function showSuccess(data) {
   }
   
   navigate('success');
+}
+
+// ── Serviceability Check ────────────────────────────────────────────────────
+async function verifyPincode() {
+  const pinInput = document.getElementById('buyPin').value.trim();
+  const statusEl = document.getElementById('pinStatus');
+  
+  if (pinInput.length !== 6) {
+    statusEl.textContent = '';
+    state.pincodeServiceable = false;
+    return;
+  }
+
+  statusEl.textContent = '⏳ Verifying...';
+  statusEl.style.color = '#eab308'; // yellow
+  
+  try {
+    const r = await fetch('/api/delhivery/check-pincode?dest=' + pinInput);
+    const data = await r.json();
+    if (data.serviceable) {
+      statusEl.textContent = '✅ Delivery Available';
+      statusEl.style.color = '#22c55e'; // green
+      state.pincodeServiceable = true;
+    } else {
+      statusEl.textContent = '❌ Not Serviceable';
+      statusEl.style.color = '#ef4444'; // red
+      state.pincodeServiceable = false;
+    }
+  } catch (e) {
+    statusEl.textContent = '⚠️ Check Failed';
+    statusEl.style.color = '#ef4444';
+    state.pincodeServiceable = false;
+  }
 }
 
 // ── Init ───────────────────────────────────────────────────────────────────
