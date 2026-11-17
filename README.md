@@ -63,11 +63,6 @@ sudo apt install certbot python3-certbot-nginx -y
 sudo certbot --nginx -d suvidhaair.in -d www.suvidhaair.in
 ```
 
-## Admin Dashboard
-
-- URL: `https://suvidhaair.in/admin` (not linked anywhere on main site)
-- Password: `121004`
-- Features: Orders, Products, Bulk Quotes, Revenue stats, Shipping settings
 
 ## How payments work
 
