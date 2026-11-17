@@ -22,14 +22,6 @@ suvidhaair/
         └── index.html     ← Admin dashboard (secret)
 ```
 
-## Credentials configured
-
-| Service    | Key/Token                                        |
-|------------|--------------------------------------------------|
-| Razorpay   | `rzp_test_SgS6ryaCihEJxn` (test mode)            |
-| Delhivery  | `736cedf712c367a6d6b7f04d21e8b9d37604e118`       |
-| Admin URL  | `https://suvidhaair.in/admin`                    |
-| Admin Pass | `121004`                                          |
 
 ## Step-by-step deployment
 
