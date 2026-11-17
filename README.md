@@ -74,13 +74,7 @@ sudo certbot --nginx -d suvidhaair.in -d www.suvidhaair.in
 6. Backend automatically creates Delhivery shipment
 7. Waybill number stored in order record, shown to customer
 
-## Switch to Razorpay Live mode
 
-1. Log in to https://dashboard.razorpay.com
-2. Go to Settings → API Keys → Generate Live Key
-3. In `routes/payment.js`, replace:
-   - `rzp_test_SgS6ryaCihEJxn` → your live key ID
-   - `OCBC4wXd1SvEeQV7QnwzU1Rf` → your live key secret
 
 ## Database
 
